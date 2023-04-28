@@ -6,24 +6,16 @@
 </head>
 
 <body>
-  <h1>Cadastro</h1>
-  <form id="myForm" action="http://127.0.0.1:5000/principal"> <!-- troca pela url do servidor replit-->
-    
-    <input type="text" id="name" name="name" placeholder="Nome" required><br>
-
-    
-    <input type="email" id="email" name="email" placeholder="Email" required><br>
-
+  <h1>Login</h1>
+  <form id="login" action="http://127.0.0.1:5000/principal"> <!-- troca pela url do servidor replit-->
     
     <input type="text" id="username" name="username" placeholder="Username" required><br>
 
-    
     <input type="password" id="password" name="password" placeholder="Senha" required><br>
 
     <input type="hidden" name="redirect" value="http://127.0.0.1:5000/principal"> <!-- troca pela url do servidor replit-->
     
   </form>
-  <button onclick="document.getElementById('myForm').submit();">Enviar Cadastro</button>
+  <button onclick="document.getElementById('login').submit();">Fazer Login</button>
 </body>
-
 </html>
