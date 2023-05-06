@@ -1,0 +1,8 @@
+.modal-content {
+    background-color: #ffffff; /* Set the background color of the modal content */
+    margin: 10% auto; /* Center the modal content vertically and horizontally */
+    padding: 20px;
+    border: 1px outset #888;
+    width: 25%; /* Set the width of the modal content */
+border-radius: 10px;
+}

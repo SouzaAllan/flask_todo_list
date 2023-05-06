@@ -4,14 +4,16 @@
     <title>Exemplo de Tela com 3 Botões de Redirecionamento</title>
   </head>
   <body>
-    <h1>Escolha uma opção:</h1>
-    <button onclick="window.location.href='https://www.google.com';"> <!-- troca pela url do servidor replit-->
+    <h1>Bem-vindo, {{ username }}! Escolha uma opção:</h1>
+    <button onclick="window.location.href='/update_user';"><br> <!-- troca pela url do servidor replit-->
         Atualizar cadastro
     </button>
-    <button onclick="window.location.href='https://www.facebook.com';"> <!-- troca pela url do servidor replit-->
-      Consultar tarefas
-    </button>
-    <button onclick="window.location.href='https://www.twitter.com';"> <!-- troca pela url do servidor replit-->
+
+    <form action="/tasks" method="GET">
+      <input type="hidden" name="token" value={{token}}>
+      <button type="submit">tasks</button>
+    </form>
+    <button onclick="window.location.href='/delete';"><br> <!-- troca pela url do servidor replit-->
       Deletar conta
     </button>
   </body>

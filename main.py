@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import json
 import requests as rs
 
@@ -16,51 +16,6 @@ def form():
 def test_cad():
     return render_template('test_cad.html')
 
-'''@app.route('/pos_cad')
-def pos_cad():
-    name = request.form['name']
-    email = request.form['email']
-    password = request.form['password']
-    username = request.form['username']
-    pay_load = {
-    'username': '{}'.format(username),
-    'password': '{}'.format(password),
-    'email' : '{}'.format(email),
-    'name' : '{}'.format(name)
-    }
-    recurso = 'user'    # Resources (veja na documentação)
-    servico = 'new'   # Cada resource tem seu métodos para os seviços
-    url = f"https://todolist-api.edsonmelo.com.br/api/{recurso}/{servico}/"
-    # Cabeçalho da requisição informando o que deverá ser enviado e qual o formato
-    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-
-    # Envio da requisição e armazenamento dos dados recebidos
-    dados = rs.post(url, data=json.dumps(pay_load), headers=headers)
-    # Aqui devem ser realizados os tratamentos no caso de ocorrerem erros
-    try:
-        # Converte os dados recebidos em em dicionário Python
-        dicionario = json.loads(dados.text)
-
-        if 'message' in dicionario:
-            # Gera uma mensagem de erro com o valor retornado pela API ou conexão
-            raise Exception(dicionario.get('message'))
-            return render_template('falha_cadastro.html')
-            
-        else:
-            # Mostra os dados retornados já convertidos
-           url_login = f"https://todolist-api.edsonmelo.com.br/api/user/login/"
-           pay_load_lg = {
-            'username': '{}'.format(username),
-            'password': '{}'.format(password)
-            }
-           headers_lg = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-           dados = rs.post(url_login, data=json.dumps(pay_load_lg), headers=headers_lg)
-           return render_template('principal.html')
-
-    except Exception as error:
-       return render_template('falha_cadastro.html')
-
-'''
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -70,9 +25,7 @@ def submit():
     email = request.form['email']
     password = request.form['password']
     username = request.form['username']
-    recurso = 'user'    # Resources (veja na documentação)
-    servico = 'new'   # Cada resource tem seu métodos para os seviços
-    url = f"https://todolist-api.edsonmelo.com.br/api/{recurso}/{servico}/"
+    url = f"https://todolist-api.edsonmelo.com.br/api/user/new/"
     # Cabeçalho da requisição informando o que deverá ser enviado e qual o formato
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -85,27 +38,54 @@ def submit():
         'username' : username
     }
     response = rs.post(url, data=json.dumps(data), headers=headers)
-    a= response.text
-    #b= json.dumps(a)
-    dicionario = a
+    dicionario= response.text
     specific_key = 'message'
-    if specific_key in dicionario and dicionario[specific_key] != 'User Successfully Added':
+    if isinstance(dicionario, dict) and specific_key in dicionario and isinstance(dicionario[specific_key], str) and dicionario[specific_key] != 'User Successfully Added':
         # Gera uma mensagem de erro com o valor retornado pela API ou conexão
-        return render_template('falha_cadastro.html')
-        
-        
+        return redirect(url_for('falha_cadastro'))
     else:
-        return render_template('principal.html')
+        # Handle other cases or continue with the rest of the code
+        return redirect(url_for('login'))
 
+@app.route('/falha_cadastro')
+def falha_cadastro():
+    return render_template('falha_cadastro.html')
 
 @app.route('/login')
 def login():
     return render_template('login.html')
 
-@app.route('/principal')
+@app.route('/falha_login')
+def falha_login():
+    return render_template('falha_login.html')
+
+@app.route('/principal', methods=['POST'])
 def principal():
-    return render_template('principal.html')
+# get form data
+    password = request.form['password']
+    username = request.form['username']
+    url = f"https://todolist-api.edsonmelo.com.br/api/user/login/"
+    # Cabeçalho da requisição informando o que deverá ser enviado e qual o formato
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    # send data to external API
+    data_log = {
+
+        'password': password,
+        'username' : username
+    }
+    dados = rs.post(url, data=json.dumps(data_log), headers=headers)
+    dictlogin = json.loads(dados.text)
+
+    if 'token' in dictlogin:
+        # Gera uma mensagem de erro com o valor retornado pela API ou conexão
+        user_name = dictlogin.get('name')
+        token  = dictlogin.get('token')
+        return render_template('principal.html', username = user_name, token = token)
+        
+    else:
+        return redirect(url_for('falha_login'))
+
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
