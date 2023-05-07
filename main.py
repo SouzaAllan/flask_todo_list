@@ -8,9 +8,6 @@ app = Flask(__name__,template_folder='template')
 def home():
     return render_template('home.html')
 
-@app.route('/cadastro')
-def form():
-    return render_template('form.html')
 
 @app.route('/test_cad')
 def test_cad():
@@ -80,12 +77,85 @@ def principal():
         # Gera uma mensagem de erro com o valor retornado pela API ou conexão
         user_name = dictlogin.get('name')
         token  = dictlogin.get('token')
-        return render_template('principal.html', username = user_name, token = token)
+        return render_template('principal.html', username = user_name, token = token,user=username, senha=password)
         
     else:
         return redirect(url_for('falha_login'))
+    
+@app.route('/update_user', methods=['POST'])
+def update_user():
+    password = request.form['password']
+    username = request.form['username']
+    token  = request.form['token']
+    return render_template('update_user.html',token=token,user=username,senha=password)
+
+@app.route('/submit_update', methods=['POST'])
+def submit_update():
+    username = request.form['username']
+    token  = request.form['token']
+    name  = request.form['name']
+    picture  = request.form['image']
+    password  = request.form['password']
+    email  = request.form['email']
+    url = f"https://todolist-api.edsonmelo.com.br/api/user/update/"
+
+    # Corpo da mensagem a ser enviada para a API com as informações
+    # Veja na documentação as opções de pay_load de acordo com o recurso e serviço desejado
+    pay_load = {
+        'username': username,
+        'password': password,
+        'name' : name,
+        'picture' : picture,
+        'email': email
+        }
+
+    # Cabeçalho da requisição informando o que deverá ser enviado e qual o formato
+    headers = {'Content-type': 'application/json', 'Authorization': token}
+
+    # Envio da requisição e armazenamento dos dados recebidos
+    data_update = rs.put(url, data=json.dumps(pay_load), headers=headers)
+    # Converte os dados recebidos em em dicionário Python
+    dictupdate = json.loads(data_update.text)
+
+    if 'message' in dictupdate:
+        return render_template('submit_update.html')
+    else:
+        # Mostra os dados retornados já convertidos
+        return 'deu problema ai'
 
 
+
+@app.route('/tasks')
+def task():
+    return render_template('tasks.html')
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    password = request.form['password']
+    username = request.form['username']
+    token  = request.form['token']
+    url = f"https://todolist-api.edsonmelo.com.br/api/user/delete/"
+    # Cabeçalho da requisição informando o que deverá ser enviado e qual o formato
+    headers = {'Content-type': 'application/json', 'Authorization': token}
+    # send data to external API
+    data_log = {
+
+        'password': password,
+        'username' : username
+    }
+    dados_delete = rs.delete(url, data=json.dumps(data_log), headers=headers)
+    try:
+        # Converte os dados recebidos em em dicionário Python
+        dictdelete = json.loads(dados_delete.text)
+
+        if 'message' in dictdelete:
+            return render_template('delete.html')
+        else:
+            # Mostra os dados retornados já convertidos
+            return 'deu problema ai'
+
+    except Exception as error:
+        print(error)
 
 if __name__ == '__main__':
     app.run(debug=True)

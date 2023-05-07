@@ -5,16 +5,22 @@
   </head>
   <body>
     <h1>Bem-vindo, {{ username }}! Escolha uma opção:</h1>
-    <button onclick="window.location.href='/update_user';"><br> <!-- troca pela url do servidor replit-->
-        Atualizar cadastro
-    </button>
 
+    <form action="/update_user" method="POST">
+    <input type="hidden" name="token" value='{{token}}'>
+    <input type="hidden" name="username" value='{{user}}'>
+    <input type="hidden" name="password" value='{{senha}}'>
+    <button type="submit">Atualizar cadastro</button>
+    </form>
     <form action="/tasks" method="GET">
       <input type="hidden" name="token" value={{token}}>
-      <button type="submit">tasks</button>
+      <button type="submit">Tasks</button>
     </form>
-    <button onclick="window.location.href='/delete';"><br> <!-- troca pela url do servidor replit-->
-      Deletar conta
-    </button>
+    <form action="/delete" method="POST">
+      <input type="hidden" name="token" value='{{token}}'>
+      <input type="hidden" name="username" value='{{user}}'>
+      <input type="hidden" name="password" value='{{senha}}'>
+      <button type="submit">Deletar conta</button>
+    </form>
   </body>
 </html>
