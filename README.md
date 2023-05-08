@@ -8,7 +8,9 @@
 * [Allan Tavares de Souza Feitosa](https://github.com/SouzaAllan)
 * [Sara Luisa Sousa](https://github.com/sara-souza)
 * [Gabriel San Gregorio](https://github.com/gabs1san)
-* [Thamilles](https://github.com/Thamiles04)
+* [Thamilles Nascimento dos Santos](https://github.com/Thamiles04)
+* [Cinthia Vitoria Mendes da Silva](https://gitHub.com/cinthiayumi)
+* [Vinicius Rosolem Rodrigues](https://github.com/ViniciusRosolem)
 
 
 # Instrutor
