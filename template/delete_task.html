@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete task</title>
+</head>
+<h1>Deletar task</h1>
+<body>
+    <form action="/submit_delete_task" method="POST">
+        <input type="text" id="id" name="id" placeholder="Insira o id da tarefa" required><br>
+        <input type="hidden" name="token" value='{{token}}'>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

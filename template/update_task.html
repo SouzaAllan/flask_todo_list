@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Task</title>
+  </head>
+  <body>
+    <h1>Altere as informações da task:</h1>
+    <form action="/submit_update_task" method="POST">
+      <input type="hidden" name="token" value='{{token}}'>
+      <input type="text" id="name" name="name" placeholder="Nome" required><br>
+      <input type="text" id="id" name="id" placeholder="Id da task" required><br>
+      <input type="text" id="realized" name="realized" placeholder="Status" required><br>
+      <button type="submit">Atualizar task</button>
+    </form>
+  </body>
+</html>

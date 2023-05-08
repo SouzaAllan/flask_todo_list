@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exemplo de Tela com 3 Botões de Redirecionamento</title>
+    <title>Tasks</title>
   </head>
   <body>
-    <h1>Bem-vindo</h1>
+    <h1>Escolha uma opção:</h1>
+
+    <form action="/create_task" method="POST">
+    <input type="hidden" name="token" value='{{token}}'>
+    <button type="submit">Criar task</button>
+    </form>
+    <form action="/see_tasks" method="POST">
+      <input type="hidden" name="token" value={{token}}>
+      <button type="submit">Ver tasks</button>
+    </form>
   </body>
 </html>

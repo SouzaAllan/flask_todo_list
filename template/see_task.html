@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks List</title>
+</head>
+<body>
+    <h1>Tasks List</h1>
+    <ul>
+    {% for task in tasks %}
+        <li>ID: {{ task['id'] }} - Nome da task: {{ task['name'] }} - Realized: {{ task['realized'] }}</li>
+    {% endfor %}
+    </ul>
+</form>
+<form action="/delete_tasks" method="POST">
+  <input type="hidden" name="token" value={{token}}>
+  <button type="submit">Deletar tarefa</button>
+</form>
+<form action="/update_tasks" method="POST">
+  <input type="hidden" name="token" value='{{token}}'>
+  <button type="submit">Atualizar tarefas</button>
+</form>
+</body>
+</html>
