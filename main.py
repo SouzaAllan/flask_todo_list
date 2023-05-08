@@ -218,7 +218,7 @@ def see_tasks():
 
   if 'message' in dd:
     # Gera uma mensagem de erro com o valor retornado pela API ou conexão
-    return render_template('sem_tasks.html')
+    return render_template('sem_tasks.html', token=token)
 
   else:
     # Mostra os dados retornados já convertidos
