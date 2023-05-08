@@ -6,10 +6,10 @@
 # Integrantes 
 
 * [Allan Tavares de Souza Feitosa](https://github.com/SouzaAllan)
-* [Sara Luisa Sousa](https://github.com/sara-souza)
-* [Gabriel San Gregorio](https://github.com/gabs1san)
-* [Thamilles Nascimento dos Santos](https://github.com/Thamiles04)
 * [Cinthia Vitoria Mendes da Silva](https://gitHub.com/cinthiayumi)
+* [Gabriel San Gregorio](https://github.com/gabs1san)
+* [Sara Luisa Sousa](https://github.com/sara-souza)
+* [Thamiles Nascimento dos Santos](https://github.com/Thamiles04)
 * [Vinicius Rosolem Rodrigues](https://github.com/ViniciusRosolem)
 
 
