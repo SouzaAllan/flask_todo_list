@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exemplo de Tela com 3 Botões de Redirecionamento</title>
+    <title>Principal</title>
+    <style>
+      .modal-content{
+      position: relative;
+      padding: 20px;
+      margin: 10% auto; /* Center the modal content vertically and horizontally */
+      width: 50%; /* Set the width of the modal content */
+      background-color: #fff;
+      border-radius: 20px;
+      .title_name{
+        font-family: Helvetica;
+        font-size: 1rem;
+        text-align: center;
+        }
+        .buttons{
+        color: rgb(0, 0, 0);
+        text-align: center; 
+        text-decoration: none; 
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body style="background-color: #ebebeb ;">
+    <div class="modal-content">
+      <div class="title_name">
     <h1>Bem-vindo, {{ username }}! Escolha uma opção:</h1>
-
+    </div>
+    <div class="buttons">
     <form action="/update_user" method="POST">
     <input type="hidden" name="token" value='{{token}}'>
     <input type="hidden" name="username" value='{{user}}'>
     <input type="hidden" name="password" value='{{senha}}'>
     <button type="submit">Atualizar cadastro</button>
     </form>
+  
     <form action="/tasks" method="POST">
       <input type="hidden" name="token" value={{token}}>
       <button type="submit">Tasks</button>
@@ -22,5 +46,7 @@
       <input type="hidden" name="password" value='{{senha}}'>
       <button type="submit">Deletar conta</button>
     </form>
+  </div>
+    </div>
   </body>
 </html>

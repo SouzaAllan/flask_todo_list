@@ -2,19 +2,18 @@
 <html>
   <head>
     <style>
+        body {
+			background: linear-gradient(to bottom,  #cccccc, #cccccc);
+		}
     
     .modal-content {
-      position: relative;
-      padding: 20px;
-      margin: 10% auto; /* Center the modal content vertically and horizontally */
-      width: 25%; /* Set the width of the modal content */
-      background-color: #fff;
-      border-radius: 20px;
-      .title_name{
-        font-family: Helvetica;
-        font-size: 1rem;
-        text-align: center;
-        }
+        background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			margin: 150px auto;
+			padding: 20px;
+			width: 410px;
+            height: 230px;
       .buttons{
         
         text-align: center;
@@ -22,21 +21,35 @@
       }
     }
 
-    .modal-content::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      padding: 3px; /* control the border thickness */
-      background: linear-gradient(45deg, red, blue);
-      -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      pointer-events: none;
-    }
+    button {
+  background-color: #96e2e6; 
+  color: rgb(0, 0, 0);
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 10px; 
+  cursor: pointer; 
+}
+
+button:hover {
+  background-color: #c6eaec; 
+}
+
+button:active {
+  background-color: #47d6dd;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
    
+    h1 {
+			color: #191413;
+			font-size: 2.5rem;
+			margin-bottom: 30px;
+			text-align: center;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+		}
 
   </style>
   </head>

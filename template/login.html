@@ -2,11 +2,34 @@
 <html>
 
 <head>
-  
+  <style>
+    .modal-content{
+    position: relative;
+    padding: 20px;
+    margin: 10% auto; /* Center the modal content vertically and horizontally */
+    width: 50%; /* Set the width of the modal content */
+    background-color: #fff;
+    border-radius: 20px;
+    .title_name{
+      font-size: 1rem;
+      text-align: center;
+      }
+      .buttons{
+      color: rgb(0, 0, 0);
+      text-align: center; 
+      text-decoration: none; 
+      }
+    }
+    </style>
 </head>
 
-<body>
-  <h1>Login</h1>
+
+<body style="background-color: #ebebeb ;">
+    <div class="modal-content">
+      <div class="title_name">
+        <h1>Login</h1>
+      </div>
+    <div class="buttons">
   <form action="/principal" method="post">
 
     <input type="text" id="username" name="username" placeholder="Username" required><br>
@@ -15,5 +38,7 @@
     
     <input type="submit" value="Enviar">
   </form>
+    </div>
+    </div>
 </body>
 </html>
