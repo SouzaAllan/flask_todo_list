@@ -1,98 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Form</title>
-    <style>
-        body {
-			background: linear-gradient(to bottom,  #cccccc, #cccccc);
-		}
-    
+  <title>Form</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #cccccc, #cccccc);
+    }
+
     .modal-content {
-        background-color: #fff;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0,0,0,0.3);
-			margin: 150px auto;
-			padding: 20px;
-			width: 500px;
-            height: 400px;
-            
-      .buttons{
-        
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 150px auto;
+      padding: 20px;
+      width: 500px;
+      height: 400px;
+
+      .buttons {
+
         text-align: center;
-        
       }
     }
 
 
-    input[type="text"], input[type="name"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+    input[type="text"],
+    input[type="name"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
 
-input[type="text"], input[type="email"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
 
-input[type="text"], input[type="username"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-
-    input[type="text"], input[type="password"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+    input[type="text"],
+    input[type="username"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
 
 
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
 
-   
+    input[type="submit"] {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 17px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+    }
+
     h1 {
-			color: #191413;
-			font-size: 2.5rem;
-			margin-bottom: 30px;
-			text-align: center;
-			text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-		}
-
+      color: #191413;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
+
 <body style="background-color: #ebebeb ;">
-    <div class="modal-content">
-      <div class="title_name">
-<h1>Cadastro</h1>
-</div>
-<body>
-    <form action="/submit" method="post">
+  <div class="modal-content">
+    <div class="title_name">
+      <h1>Cadastro</h1>
+    </div>
+
+    <body>
+      <form action="/submit" method="post">
         <input type="text" id="name" name="name" placeholder="Nome" required><br>
 
-    
+
         <input type="email" id="email" name="email" placeholder="Email" required><br>
-    
-        
+
+
         <input type="text" id="username" name="username" placeholder="Username" required><br>
-    
-        
+
+
         <input type="password" id="password" name="password" placeholder="Senha" required><br>
-        
-        <input type="submit" value="Enviar">
-    </form>
-</body>
+
+        <input type="submit" value="Enviar" class="submit-button">
+      </form>
+    </body>
+
 </html>

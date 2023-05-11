@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Tasks List</title>
+  <title>Tasks List</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #cccccc, #cccccc);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 150px auto;
+      padding: 20px;
+      width: 500px;
+      height: 500px;
+
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 9px 18px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+      width: 150;
+      height: 30px;
+    }
+
+    h1 {
+      color: #191413;
+      font-size: 1.6rem;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
-<body>
-    <h1>Tasks List</h1>
-    <ul>
-    {% for task in tasks %}
+
+<body style="background-color: #ebebeb ;">
+  <div class="modal-content">
+    <div class="title_name">
+      <h1>Tasks List</h1>
+      <br>
+      <br>
+
+      <ul>
+        {% for task in tasks %}
         <li>ID: {{ task['id'] }} - Nome da task: {{ task['name'] }} - Realized: {{ task['realized'] }}</li>
-    {% endfor %}
-    </ul>
-</form>
-<form action="/delete_tasks" method="POST">
-  <input type="hidden" name="token" value={{token}}>
-  <button type="submit">Deletar tarefa</button>
-</form>
-<form action="/update_tasks" method="POST">
-  <input type="hidden" name="token" value='{{token}}'>
-  <button type="submit">Atualizar tarefas</button>
-</form>
+        {% endfor %}
+      </ul>
+      </form>
+    </div>
+    <div class="buttons"></div>
+    <form action="/delete_tasks" method="POST">
+      <input type="hidden" name="token" value={{token}}>
+      <br>
+      <br>
+      <br>
+      <br>
+      <input type="submit" value="Deletar tarefa" class="submit-button">
+    </form>
+    <form action="/update_tasks" method="POST">
+      <input type="hidden" name="token" value='{{token}}'>
+      <input type="submit" value="Atualizar tarefas" class="submit-button">
+    </form>
+  </div>
 </body>
+
 </html>
