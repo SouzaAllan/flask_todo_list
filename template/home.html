@@ -1,72 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-        body {
-			background: linear-gradient(to bottom,  #cccccc, #cccccc);
-		}
-    
+
+<head>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #cccccc, #cccccc);
+    }
+
     .modal-content {
-        background-color: #fff;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0,0,0,0.3);
-			margin: 150px auto;
-			padding: 20px;
-			width: 410px;
-            height: 230px;
-      .buttons{
-        
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 150px auto;
+      padding: 20px;
+      width: 410px;
+      height: 230px;
+
+      .buttons {
+
         text-align: center;
-        
+
       }
     }
 
     button {
-  background-color: #96e2e6; 
-  color: rgb(0, 0, 0);
-  padding: 10px 20px; 
-  text-align: center; 
-  text-decoration: none; 
-  display: inline-block; 
-  font-size: 16px; 
-  margin: 10px; 
-  cursor: pointer; 
-}
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+    }
 
-button:hover {
-  background-color: #c6eaec; 
-}
+    button:hover {
+      background-color: #79cdd1;
+    }
 
-button:active {
-  background-color: #47d6dd;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-   
+    button:active {
+      background-color: #47d6dd;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
     h1 {
-			color: #191413;
-			font-size: 2.5rem;
-			margin-bottom: 30px;
-			text-align: center;
-			text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-		}
-
+      color: #191413;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
   </style>
-  </head>
-  <body style="background-color: #ebebeb ;">
-    <div class="modal-content">
-      <div class="title_name">
-        <h1>Gerenciador de Tarefas</h1>
-      </div>
-      <div class="buttons">
-        <button onclick="window.location.href='/test_cad';"> <!-- troca pela url do servidor replit-->
-            Cadastro
-        </button><br>
-        <button onclick="window.location.href='/login';"> <!-- troca pela url do servidor replit-->
-          Login
-          </button>
-          </div>
-        
+</head>
+
+<body style="background-color: #ebebeb ;">
+  <div class="modal-content">
+    <div class="title_name">
+      <h1>Gerenciador de Tarefas</h1>
     </div>
-  </body>
+    <div class="buttons">
+      <button onclick="window.location.href='/test_cad';"> <!-- troca pela url do servidor replit-->
+        Cadastro
+      </button><br>
+      <button onclick="window.location.href='/login';"> <!-- troca pela url do servidor replit-->
+        Login
+      </button>
+    </div>
+
+  </div>
+</body>
+
 </html>
