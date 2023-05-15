@@ -34,7 +34,7 @@
       margin: 5px 5px;
       cursor: pointer;
       border-radius: 25px;
-      width: 170px;
+      width: 250px;
       height: 40px;
     }
 
@@ -64,6 +64,12 @@
         <input type="hidden" name="password" value='{{senha}}'>
         <input type="submit" value="Atualizar cadastro" class="submit-button">
       </form>
+          <form action="/update_user_pass" method="POST">
+      <input type="hidden" name="token" value='{{token}}'>
+      <input type="hidden" name="username" value='{{user}}'>
+      <input type="hidden" name="password" value='{{senha}}'>
+      <input type="submit" value="Atualizar username ou senha"class="submit-button">
+    </form>
 
       <form action="/tasks" method="POST">
         <input type="hidden" name="token" value='{{token}}'>

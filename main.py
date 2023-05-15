@@ -36,7 +36,8 @@ def submit():
     'username': username
   }
   response = rs.post(url, data=json.dumps(data), headers=headers)
-  dicionario = response.text
+  dicionario = json.loads(response.text)
+  print(dicionario)
   specific_key = 'message'
   if isinstance(
       dicionario, dict) and specific_key in dicionario and isinstance(
@@ -69,6 +70,8 @@ def principal():
   # get form data
   password = request.form['password']
   username = request.form['username']
+  print(username)
+  print(password)
   url = f"https://todolist-api.edsonmelo.com.br/api/user/login/"
   # Cabeçalho da requisição informando o que deverá ser enviado e qual o formato
   headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -76,6 +79,7 @@ def principal():
   data_log = {'password': password, 'username': username}
   dados = rs.post(url, data=json.dumps(data_log), headers=headers)
   dictlogin = json.loads(dados.text)
+  print(dictlogin)
 
   if 'token' in dictlogin:
     # Gera uma mensagem de erro com o valor retornado pela API ou conexão
@@ -135,6 +139,41 @@ def submit_update():
   else:
     # Mostra os dados retornados já convertidos
     return 'deu problema ai'
+
+
+@app.route('/update_user_pass', methods=['POST'])
+def update_user_pass():
+  password = request.form['password']
+  username = request.form['username']
+  token = request.form['token']
+  return render_template('update_user_pass.html',
+                         token=token,
+                         user=username,
+                         senha=password)
+
+
+@app.route('/submit_update_user_pass', methods=['POST'])
+def submit_update_user_pass():
+  password = request.form['password']
+  username = request.form['username']
+  token = request.form['token']
+  new_password = request.form['new_password']
+  new_username = request.form['new_username']
+  url = f"https://todolist-api.edsonmelo.com.br/api/user/updateuserpass/"
+  payload = {
+    "username": username,
+    "password": password,
+    "new_username": new_username,
+    "new_password": new_password
+  }
+  headers = {'Content-type': 'application/json', "Authorization": token}
+  dados = rs.put(url, data=json.dumps(payload), headers=headers)
+  dicionario = json.loads(dados.text)
+  print(dicionario)
+  return render_template('submit_update.html',
+                         token=token,
+                         user=username,
+                         senha=password)
 
 
 @app.route('/tasks', methods=['POST'])
